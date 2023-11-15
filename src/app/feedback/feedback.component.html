@@ -1,0 +1,49 @@
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/home">Home</button>
+    <a routerLink="/login"><button mat-menu-item>Sair</button></a>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div class="center-container">
+    <div class="table-container">
+      <div class="table-container">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!-- Nome da Coluna -->
+          <ng-container matColumnDef="nome">
+            <mat-header-cell *matHeaderCellDef> Nome do Usuário </mat-header-cell>
+            <mat-cell *matCellDef="let feedback"> {{ feedback.nome }} </mat-cell>
+          </ng-container>
+
+          <!-- Data da Coluna -->
+          <ng-container matColumnDef="data">
+            <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
+            <mat-cell *matCellDef="let feedback"> {{ feedback.data | date:'dd/MM/yyyy' }} </mat-cell>
+          </ng-container>
+
+          <!-- Feedback da Coluna -->
+          <ng-container matColumnDef="feedback">
+            <mat-header-cell *matHeaderCellDef> Feedback </mat-header-cell>
+            <mat-cell *matCellDef="let feedback"> {{ feedback.mensagem }} </mat-cell>
+          </ng-container>
+
+          <!-- Ações da Coluna -->
+          <ng-container matColumnDef="acoes">
+            <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+            <mat-cell *matCellDef="let feedback">
+              <button mat-icon-button color="warn" (click)="removerFeedback(feedback)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+    <button mat-raised-button="primary" routerLink="/escrevefeed"  class="add-feedback-button" (click)="adicionarFeedback">Adicionar Feedback</button>
+  </div>
