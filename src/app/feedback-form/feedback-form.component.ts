@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
+import { Feedback } from '../feedback/feedback.component';
 
 @Component({
   selector: 'app-feedback-form',
@@ -10,7 +11,7 @@ import { Inject } from '@angular/core';
 export class FeedbackFormComponent {
   constructor(
     public dialogRef: MatDialogRef<FeedbackFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { nome: string, mensagem: string }
+    @Inject(MAT_DIALOG_DATA) public data: Feedback
   ) {}
 
   onSubmit(): void {

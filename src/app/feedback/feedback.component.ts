@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FeedbackFormComponent } from '../feedback-form/feedback-form.component';
 import { MatDialog } from '@angular/material/dialog';
 
-interface Feedback {
+export interface Feedback {
   nome: string;
-  data: Date;
+  data?: Date;
   mensagem: string;
 }
 
@@ -36,14 +36,13 @@ export class FeedbackComponent {
           data: new Date(),
           mensagem: result.mensagem
         };
-        this.dataSource.push(novoFeedback);
+        this.dataSource = [...this.dataSource, novoFeedback]
       }
     });
   }
   removerFeedback(feedback: Feedback) {
     const index = this.dataSource.indexOf(feedback);
     if (index >= 0) {
-      // this.dataSource.splice(index, 1);      
       this.dataSource = [...this.dataSource.slice(0, index), ...this.dataSource.slice(index + 1)];
     }
   }
