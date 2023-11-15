@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Adicionar Feedback</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Seu Nome" [(ngModel)]="data.nome" required>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Seu Feedback" [(ngModel)]="data.mensagem" required></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Salvar</button>
+  </form>
+</mat-dialog-content>
