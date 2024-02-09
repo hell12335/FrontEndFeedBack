@@ -9,7 +9,6 @@ const routes: Routes = [
   {path: "formularioCadastro", component: ForumalrioCadastroComponent},
   {path: "feedback", component: FeedbackComponent},
   {path: "login", component: LoginComponent},
-  {path: "escrevefeed", component: FeedbackFormComponent},
   {path: "**", component: LoginComponent}
 ];
 

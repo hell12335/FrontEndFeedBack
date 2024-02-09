@@ -1,6 +1,5 @@
   <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/home">Home</button>
-    <a routerLink="/login"><button mat-menu-item>Sair</button></a>
+    <button mat-menu-item routerLink="/login">Sair</button>
   </mat-menu>
 
   <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -45,5 +44,5 @@
         </mat-table>
       </div>
     </div>
-    <button mat-raised-button="primary" routerLink="/escrevefeed"  class="add-feedback-button" (click)="adicionarFeedback">Adicionar Feedback</button>
+    <button mat-raised-button="primary" class="add-feedback-button" (click)="adicionarFeedback()">Adicionar Feedback</button>
   </div>
