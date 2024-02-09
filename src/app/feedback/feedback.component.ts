@@ -26,7 +26,7 @@ export class FeedbackComponent {
   adicionarFeedback() {
     const dialogRef = this.dialog.open(FeedbackFormComponent, {
       width: '400px',
-      data: { nome: 'Novo Usuário', mensagem: '' }
+      data: { nome: '', mensagem: '' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
