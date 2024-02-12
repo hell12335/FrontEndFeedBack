@@ -19,6 +19,7 @@ import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {FormsModule} from '@angular/forms';
     MatIconModule, 
     MatTableModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [],
