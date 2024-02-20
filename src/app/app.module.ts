@@ -20,6 +20,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ApiServiceLogin } from './api.service.login';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatDialogModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
