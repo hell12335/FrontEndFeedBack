@@ -21,7 +21,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ApiServiceLogin } from './api.service.login';
+import { ApiServiceLogin } from './api.service';
+
 
 
 @NgModule({

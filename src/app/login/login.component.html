@@ -2,7 +2,7 @@
   <div class="login-container">
     <mat-card class="login-card">
       <mat-card-content>
-      <form  >   
+      <form>   
           <mat-form-field class="full-width">
             <input matInput placeholder="E-mail" name="username" [(ngModel)]="user.username" required>
             <!-- formControlName="nome" -->
@@ -13,8 +13,8 @@
             <!-- formControm="senha"  -->
           </mat-form-field>
 
-          <a> <button (click)="enviarDados()"  mat-raised-button color="primary">Login</button> </a>
-          <a routerLink="/formularioCadastro"> <button mat-raised-button color="basic">Cadastre-se</button> </a>
+         <button (click)="enviarDadosLogin()"  mat-raised-button color="primary">Login</button> 
+         <button (click)="enviarDadoscadastro()" mat-raised-button color="basic">Cadastre-se</button> 
         </form>
       </mat-card-content>
     </mat-card>

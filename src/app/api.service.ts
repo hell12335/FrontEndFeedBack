@@ -16,7 +16,11 @@ export class ApiServiceLogin {
     return this.http.get<any>(`${this.apiUrl}/api/v1/user/login`);
   }
 
-  enviarDados(dados: any): Observable<any> {
+  enviarDadosLogin(dados: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/api/v1/user/login`, dados);
+  }
+
+  enviarDadoscadastro(dados: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/v1/user`, dados);
   }
 }
