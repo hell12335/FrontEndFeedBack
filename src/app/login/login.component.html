@@ -2,18 +2,16 @@
   <div class="login-container">
     <mat-card class="login-card">
       <mat-card-content>
-      <form>   
+      <form [formGroup]="loginForm" (ngSubmit)="submeterFormulario()">   
           <mat-form-field class="full-width">
-            <input matInput placeholder="E-mail" name="username" [(ngModel)]="user.username" required>
-            <!-- formControlName="nome" -->
+            <input matInput placeholder="E-mail" name="username" formControlName="username" required>
           </mat-form-field>
 
           <mat-form-field class="full-width">
-            <input matInput type="password" placeholder="Senha" name="password" [(ngModel)]="user.password"required>
-            <!-- formControm="senha"  -->
+            <input matInput type="password" placeholder="Senha" name="password" formControlName="password" required>
           </mat-form-field>
 
-         <button (click)="enviarDadosLogin()"  mat-raised-button color="primary">Login</button> 
+         <button (click)="submeterFormulario()"  mat-raised-button color="primary">Login</button> 
          <button (click)="enviarDadoscadastro()" mat-raised-button color="basic">Cadastre-se</button> 
         </form>
       </mat-card-content>
