@@ -5,3 +5,7 @@ export interface Usuario {
     password: string;
     token: string;
 }
+export interface UsuarioAutenticacao {
+  accessToken: string,
+  refreshToken: string
+}
