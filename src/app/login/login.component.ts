@@ -34,7 +34,7 @@ public carregando = false;
           this.loginForm.reset();
           this.carregando = false;
           this.autenticacaoService.armazenarToken(response.data.accessToken);
-          this.router.navigate(['login']);
+          this.router.navigate(['feedback']);
         },
         error: (error: any) => {
           this.loginForm.reset();

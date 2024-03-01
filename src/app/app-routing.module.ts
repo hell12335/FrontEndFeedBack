@@ -8,7 +8,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/feedback', pathMatch: 'full' },
   {path: "formularioCadastro", component: ForumalrioCadastroComponent},
   {path: "feedback", component: FeedbackComponent},
   {path: "login", component: LoginComponent},
