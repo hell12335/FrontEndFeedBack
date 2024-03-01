@@ -39,7 +39,7 @@ export class AutenticacaoService {
   }
 
   public obterToken(): string | null {
-    return localStorage.getItem('token');
+    return localStorage.getItem('token'); 
   }
 
   public efetuarLogout(): void {
