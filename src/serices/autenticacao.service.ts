@@ -1,4 +1,4 @@
-import { Usuario } from 'src/model/usuario.model';
+import { Usuario, UsuarioAutenticacao } from 'src/model/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -7,6 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/enviroments/environment';
 import { Observable, catchError } from 'rxjs';
 import { UsuarioService } from './usuario.service';
+import { Resposta } from 'src/model/base.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +25,9 @@ export class AutenticacaoService {
     this.atualizarDadosDoUsuario();
   }
 
-  public autenticar(usuario: Usuario): Observable<Usuario> {
+  public autenticar(usuario: Usuario): Observable<Resposta<UsuarioAutenticacao>> {
     const url = `${this.urlBaseApi}`;
-    return this.fazerRequisicao(() => this.httpClient.post<Usuario>(url, usuario));
+    return this.fazerRequisicao(() => this.httpClient.post<Resposta<UsuarioAutenticacao>>(url, usuario));
   }
 
   public usuarioEstaAutenticado(): boolean {
