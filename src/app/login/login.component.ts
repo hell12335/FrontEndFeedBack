@@ -14,8 +14,8 @@ public loginForm : FormGroup = new FormGroup({});
 public carregando = false;
 
   constructor(
-    private apiService: ApiServiceLogin, 
-    private router: Router, 
+    private apiService: ApiServiceLogin,
+    private router: Router,
     private formBuilder: FormBuilder,
     private readonly autenticacaoService: AutenticacaoService,) {
 
@@ -33,7 +33,7 @@ public carregando = false;
         next: (response) => {
           this.loginForm.reset();
           this.carregando = false;
-          this.autenticacaoService.armazenarToken(response.token);
+          this.autenticacaoService.armazenarToken(response.data.accessToken);
           this.router.navigate(['login']);
         },
         error: (error: any) => {
@@ -57,7 +57,7 @@ public carregando = false;
         (response) => {
           console.log('Dados enviados com sucesso:', response);
         },
-        
+
         (error) => {
           console.error('Erro ao enviar dados:', error);
         }
