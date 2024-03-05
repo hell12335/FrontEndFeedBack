@@ -9,7 +9,15 @@
               <mat-form-field class="full-width">
                 <input type="name" matInput placeholder="Nome" required>
               </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <input type="name" matInput placeholder="Sobrenome" required>
+              </mat-form-field>
       
+              <mat-form-field class="full-width">
+                <input type="name" matInput placeholder="Nome de usuário" required>
+              </mat-form-field>
+
               <mat-form-field class="full-width">
                 <input matInput type="email" placeholder="E-mail" required>
               </mat-form-field>
@@ -18,11 +26,7 @@
                 <input matInput type="password" placeholder="Senha" required>
               </mat-form-field>
       
-              <mat-form-field class="full-width">
-                <input matInput type="password" placeholder="Confirmar Senha" required>
-              </mat-form-field>
-      
-              <button mat-raised-button routerLink = "/feedback" color="primary">Cadastrar</button>
+              <button (click)="submeterFormularioCadastro()" mat-raised-button color="primary">Cadastrar</button>
             </form>
           </mat-card-content>
         </mat-card>

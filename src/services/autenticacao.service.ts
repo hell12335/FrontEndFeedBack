@@ -1,4 +1,4 @@
-import { Usuario, UsuarioAutenticacao } from 'src/model/usuario.model';
+import { Tipouser, Usuario, UsuarioAutenticacao, UsuarioCadastro } from 'src/model/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { Resposta } from 'src/model/base.model';
 })
 export class AutenticacaoService {
   private urlBaseApi = `${environment.urlBaseApi}/api/v1/user/login`;
+  private urlBaseApiCadastro = `${environment.urlBaseApi}/api/v1/user`;
   private dadosUsuario: any;
 
   constructor(
@@ -27,6 +28,11 @@ export class AutenticacaoService {
 
   public autenticar(usuario: Usuario): Observable<Resposta<UsuarioAutenticacao>> {
     const url = `${this.urlBaseApi}`;
+    return this.fazerRequisicao(() => this.httpClient.post<Resposta<UsuarioAutenticacao>>(url, usuario));
+  }
+
+  public autenticarCadastro(usuario: UsuarioCadastro): Observable<Resposta<UsuarioAutenticacao>> {
+    const url = `${this.urlBaseApiCadastro}`;
     return this.fazerRequisicao(() => this.httpClient.post<Resposta<UsuarioAutenticacao>>(url, usuario));
   }
 
@@ -110,6 +116,7 @@ export class AutenticacaoService {
       this.usuarioService.definirIdNaClaim(dadosUsuario.Id);
       this.usuarioService.definirNomeNaClaim(dadosUsuario.Nome);
       this.usuarioService.definirEmailNaClaim(dadosUsuario.Email);
+
     }
   }
 

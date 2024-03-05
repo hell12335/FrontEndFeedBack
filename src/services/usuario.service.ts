@@ -9,11 +9,16 @@ import { BehaviorSubject, Observable, catchError } from 'rxjs';
 })
 export class UsuarioService {
   private urlBaseApi = `${environment.urlBaseApi}/api/v1/user/login`;
+  private urlBaseApiCadastro = `${environment.urlBaseApi}/api/v1/user`;
   private id$ = new BehaviorSubject<string>("");
   private nome$ = new BehaviorSubject<string>("");
+  private nomeCadastro$ = new BehaviorSubject<string>("");
+  private Sobrenome$ = new BehaviorSubject<string>("");
   private email$ = new BehaviorSubject<string>("");
+  private username$ = new BehaviorSubject<string>("");
+  private password$ = new BehaviorSubject<string>("");
+  private confpassword$ = new BehaviorSubject<string>("");
   private perfil$ = new BehaviorSubject<string>("");
-  private foto$ = new BehaviorSubject<string>("");
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,6 +42,7 @@ export class UsuarioService {
     return this.nome$.asObservable();
   }
 
+
   public obterEmailDaClaim(): Observable<string> {
     return this.email$.asObservable();
   }
@@ -49,5 +55,17 @@ export class UsuarioService {
     this.nome$.next(nome);
   }
 
+  public definirSobreNomeNaClaim(sobreNome: string) {
+    this.Sobrenome$.next(sobreNome);
+  }
+  public definirUserNameNaClaim(userName: string) {
+    this.username$.next(userName);
+  }
+  public definirPasswordNaClaim(password: string) {
+    this.password$.next(password);
+  }
+  public definirConfPasswordNaClaim(confirpassword: string) {
+    this.confpassword$.next(confirpassword);
+  }
 
 }
