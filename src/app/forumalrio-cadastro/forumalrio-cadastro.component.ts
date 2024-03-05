@@ -31,7 +31,7 @@ export class ForumalrioCadastroComponent implements OnInit{
           next: (response) => {
             this.CadastroForm.reset();
             this.carregando = false;
-            this.autenticacaoService.armazenarToken(response.data.accessToken);
+            // this.autenticacaoService.armazenarToken(response.data.accessToken);
             this.router.navigate(['login']);
           },
           error: (error: any) => {
@@ -44,7 +44,7 @@ export class ForumalrioCadastroComponent implements OnInit{
 
     private validarformularioCadastro(): void {
         this.CadastroForm = this.formBuilder.group({
-        name: ['', Validators.required],
+        firstName: ['', Validators.required],
         lastname: ['', Validators.required],
         username: ['', Validators.required],
         email: ['', Validators.required],

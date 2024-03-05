@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable, catchError } from 'rxjs';
 })
 export class UsuarioService {
   private urlBaseApi = `${environment.urlBaseApi}/api/v1/user/login`;
-  private urlBaseApiCadastro = `${environment.urlBaseApi}/api/v1/user`;
+  private urlBaseApiCadastro = `${environment.urlBaseApi}/api/v1/user/`;
   private id$ = new BehaviorSubject<string>("");
   private nome$ = new BehaviorSubject<string>("");
   private nomeCadastro$ = new BehaviorSubject<string>("");

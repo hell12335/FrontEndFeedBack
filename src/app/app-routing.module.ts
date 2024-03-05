@@ -7,17 +7,17 @@ import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/feedback',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: '/feedback',
+  //   pathMatch: 'full'
+  // },
 
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: '/login',
+  //   pathMatch: 'full'
+  // },
   {
     path: "formularioCadastro",
     component: ForumalrioCadastroComponent

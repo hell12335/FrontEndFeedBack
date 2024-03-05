@@ -14,7 +14,7 @@ import { Resposta } from 'src/model/base.model';
 })
 export class AutenticacaoService {
   private urlBaseApi = `${environment.urlBaseApi}/api/v1/user/login`;
-  private urlBaseApiCadastro = `${environment.urlBaseApi}/api/v1/user`;
+  private urlBaseApiCadastro = `${environment.urlBaseApi}/api/v1/user/`;
   private dadosUsuario: any;
 
   constructor(

@@ -11,7 +11,7 @@ export interface UsuarioAutenticacao {
 }
 
 export interface UsuarioCadastro {
-  name : string;
+  firstName : string;
   lastname : string;
   username : string;
   email : string;
