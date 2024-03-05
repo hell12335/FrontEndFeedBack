@@ -5,25 +5,25 @@
           </mat-card-header>
       
           <mat-card-content>
-            <form class="registration-form">
+            <form  [formGroup]="CadastroForm" (ngSubmit)="submeterFormularioCadastro()" class="registration-form">
               <mat-form-field class="full-width">
-                <input type="name" matInput placeholder="Nome" required>
+                <input type="name" matInput placeholder="Nome" formControlName="name" required>
               </mat-form-field>
 
               <mat-form-field class="full-width">
-                <input type="name" matInput placeholder="Sobrenome" required>
+                <input type="name" matInput placeholder="Sobrenome" formControlName="lastname" required>
               </mat-form-field>
       
               <mat-form-field class="full-width">
-                <input type="name" matInput placeholder="Nome de usuário" required>
+                <input type="name" matInput placeholder="Nome de usuário" formControlName="username" required>
               </mat-form-field>
 
               <mat-form-field class="full-width">
-                <input matInput type="email" placeholder="E-mail" required>
+                <input matInput type="email" placeholder="E-mail" formControlName="email" required>
               </mat-form-field>
       
               <mat-form-field class="full-width">
-                <input matInput type="password" placeholder="Senha" required>
+                <input matInput type="password" placeholder="Senha" formControlName="password" required>
               </mat-form-field>
       
               <button (click)="submeterFormularioCadastro()" mat-raised-button color="primary">Cadastrar</button>
