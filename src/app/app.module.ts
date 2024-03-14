@@ -21,7 +21,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { Interceptor } from './interceptors/interceptor.module';
 
 
 
@@ -37,21 +37,21 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule, 
-    MatFormFieldModule, 
+    MatCardModule,
+    MatFormFieldModule,
     MatButtonModule,
-    MatInputModule, 
-    MatMenuModule, 
-    MatIconModule, 
+    MatInputModule,
+    MatMenuModule,
+    MatIconModule,
     MatTableModule,
     MatDialogModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    Interceptor
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
- 
+
