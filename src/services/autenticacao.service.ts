@@ -8,6 +8,7 @@ import { environment } from 'src/enviroments/environment';
 import { Observable, catchError } from 'rxjs';
 import { UsuarioService } from './usuario.service';
 import { Resposta } from 'src/model/base.model';
+import { FeedbackResponse } from 'src/model/feedback.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ import { Resposta } from 'src/model/base.model';
 export class AutenticacaoService {
   private urlBaseApi = `${environment.urlBaseApi}/api/v1/user/login`;
   private urlBaseApiCadastro = `${environment.urlBaseApi}/api/v1/user/`;
-  private urlBaseApiCadastroFeedback = `${environment.urlBaseApi}/api/v1/feedback/`;
+  private urlBaseApiCadastroFeedback = `${environment.urlBaseApi}/api/v1/feedback`;
   private dadosUsuario: any;
 
   constructor(
@@ -37,9 +38,9 @@ export class AutenticacaoService {
     return this.fazerRequisicao(() => this.httpClient.post<Resposta<UsuarioAutenticacao>>(url, usuario));
   }
 
-  public autenticarCadastroFeedback(cadastroFeedback: CadastroFeedBack): Observable<Resposta<UsuarioAutenticacao>> {
+  public autenticarCadastroFeedback(cadastroFeedback: CadastroFeedBack): Observable<Resposta<FeedbackResponse>> {
     const url = `${this.urlBaseApiCadastroFeedback}`;
-    return this.fazerRequisicao(() => this.httpClient.post<Resposta<UsuarioAutenticacao>>(url, cadastroFeedback));
+    return this.fazerRequisicao(() => this.httpClient.post<Resposta<FeedbackResponse>>(url, cadastroFeedback));
   }
 
   public usuarioEstaAutenticado(): boolean {
@@ -52,7 +53,7 @@ export class AutenticacaoService {
   }
 
   public obterToken(): string | null {
-    return localStorage.getItem('token'); 
+    return localStorage.getItem('token');
   }
 
   public efetuarLogout(): void {
