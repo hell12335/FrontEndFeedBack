@@ -1,8 +1,8 @@
 <h2 mat-dialog-title>Adicionar Feedback</h2>
 <mat-dialog-content>
-  <form>
+  <form [formGroup]="feedbackForm">
     <mat-form-field>
-      <textarea name="mensagem" matInput placeholder="Seu Feedback" fromControlName="comment" required></textarea>
+      <textarea name="comment" matInput placeholder="Seu Feedback" formControlName="comment" required></textarea>
     </mat-form-field>
     <button mat-raised-button (click)="submeterCadastroFeedBack()" color="primary" type="submit">Salvar</button>
   </form>

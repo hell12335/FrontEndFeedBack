@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import { Feedback } from '../feedback/feedback.component';
@@ -11,43 +11,42 @@ import { AutenticacaoService } from 'src/services/autenticacao.service';
   templateUrl: './feedback-form.component.html',
   styleUrls: ['./feedback-form.component.css']
 })
-export class FeedbackFormComponent {
-  public loginForm : FormGroup = new FormGroup({});
+export class FeedbackFormComponent implements OnInit {
+  public feedbackForm : FormGroup = new FormGroup({});
   public carregando = false;
 
   constructor(
+    public dialogRef: MatDialogRef<FeedbackFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router,
     private formBuilder: FormBuilder,
     private readonly autenticacaoService: AutenticacaoService,
   ) {}
 
-  onSubmit() {
+  ngOnInit() {
     this.validarCadastroFeedback();
   }
 
 
   public submeterCadastroFeedBack() : void{
-    if (this.loginForm.valid) {
+    if (this.feedbackForm.valid) {
       this.carregando = true;
-  
-      this.autenticacaoService.autenticarCadastroFeedback(this.loginForm.value).subscribe({
+      this.autenticacaoService.autenticarCadastroFeedback(this.feedbackForm.value).subscribe({
         next: (response) => {
-          this.loginForm.reset();
+          this.feedbackForm.reset();
           this.carregando = false;
-          this.autenticacaoService.obterIdArmazenadoNoToken();
-          this.autenticacaoService.usuarioEstaAutenticado();
-          this.router.navigate(['feedback']);
+          this.dialogRef.close(response.data)
         },
         error: (error: any) => {
-          this.loginForm.reset();
+          this.feedbackForm.reset();
           this.carregando = false;
         },
       });
     }
   }
-  
+
   private validarCadastroFeedback(): void {
-    this.loginForm = this.formBuilder.group({
+    this.feedbackForm = this.formBuilder.group({
       comment: ['', Validators.required]
     });
   }
