@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Usuario } from 'src/model/usuario.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/enviroments/environment';
+import { FeedbackResponse } from 'src/model/feedback.model';
 
 export interface Feedback {
   username: string;
@@ -48,12 +49,12 @@ export class FeedbackComponent {
 
 
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result?: FeedbackResponse) => {
       if (result) {
         const novoFeedback: Feedback = {
-          username: result.nome,
-          data: new Date(),
-          mensagem: result.mensagem
+          username: result.user.username,
+          data: new Date(result.created_at),
+          mensagem: result.comment
         };
         this.dataSource = [...this.dataSource, novoFeedback]
       }
