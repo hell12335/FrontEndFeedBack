@@ -1,4 +1,4 @@
-import { Tipouser, Usuario, UsuarioAutenticacao, UsuarioCadastro } from 'src/model/usuario.model';
+import { CadastroFeedBack, Tipouser, Usuario, UsuarioAutenticacao, UsuarioCadastro } from 'src/model/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,6 +15,7 @@ import { Resposta } from 'src/model/base.model';
 export class AutenticacaoService {
   private urlBaseApi = `${environment.urlBaseApi}/api/v1/user/login`;
   private urlBaseApiCadastro = `${environment.urlBaseApi}/api/v1/user/`;
+  private urlBaseApiCadastroFeedback = `${environment.urlBaseApi}/api/v1/feedback/`;
   private dadosUsuario: any;
 
   constructor(
@@ -34,6 +35,11 @@ export class AutenticacaoService {
   public autenticarCadastro(usuario: UsuarioCadastro): Observable<Resposta<UsuarioAutenticacao>> {
     const url = `${this.urlBaseApiCadastro}`;
     return this.fazerRequisicao(() => this.httpClient.post<Resposta<UsuarioAutenticacao>>(url, usuario));
+  }
+
+  public autenticarCadastroFeedback(cadastroFeedback: CadastroFeedBack): Observable<Resposta<UsuarioAutenticacao>> {
+    const url = `${this.urlBaseApiCadastroFeedback}`;
+    return this.fazerRequisicao(() => this.httpClient.post<Resposta<UsuarioAutenticacao>>(url, cadastroFeedback));
   }
 
   public usuarioEstaAutenticado(): boolean {
@@ -64,6 +70,14 @@ export class AutenticacaoService {
       console.error('Token não encontrado!');
       return null;
     }
+  }
+
+  public obterIdArmazenadoNoToken(): string {
+    if (this.dadosUsuario) {
+      return this.dadosUsuario.Id;
+    }
+
+    return '';
   }
 
   public obterNomeArmazenadoNoToken(): string {

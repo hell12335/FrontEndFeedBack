@@ -15,7 +15,7 @@ public carregando = false;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private readonly autenticacaoService: AutenticacaoService,) {
+    private readonly autenticacaoService: AutenticacaoService) {
 
   }
 

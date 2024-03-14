@@ -1,12 +1,9 @@
 <h2 mat-dialog-title>Adicionar Feedback</h2>
 <mat-dialog-content>
-  <form (ngSubmit)="onSubmit()">
+  <form>
     <mat-form-field>
-      <input name="nome" matInput placeholder="Seu Nome" [(ngModel)]="data.nome" required>
+      <textarea name="mensagem" matInput placeholder="Seu Feedback" fromControlName="comment" required></textarea>
     </mat-form-field>
-    <mat-form-field>
-      <textarea name="mensagem" matInput placeholder="Seu Feedback" [(ngModel)]="data.mensagem" required></textarea>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Salvar</button>
+    <button mat-raised-button (click)="submeterCadastroFeedBack()" color="primary" type="submit">Salvar</button>
   </form>
 </mat-dialog-content>
